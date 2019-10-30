@@ -12,23 +12,24 @@ int main()
 	
 	while (!exit)
 	{
-
-		while (window.isOpen())
+		
+		sf::Event event;
+		while (window.pollEvent(event))
 		{
-			sf::Event event;
-			while (window.pollEvent(event))
+			if (event.type == sf::Event::Closed)
 			{
-				if (event.type == sf::Event::Closed)
-				{
-					window.close();
-					exit = true;
-				}
+				window.close();
+				exit = true;
 			}
 		}
+		// ACTUALIZAR EL ESTADO DEL JUEGO
+
+		// ...
+
+		// RENDERIZAR EL FOTOGRAMA RESULTANTE
 
 		window.display();
-		return 0;
-
-
+		
+	}
 	return 0;
 }
